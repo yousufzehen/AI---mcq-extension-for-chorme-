@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "MCQ Assistant",
+  "version": "1.0.0",
+  "description": "AI-powered multiple choice question assistant for educational purposes",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://localhost:3000/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "utils/stealth.js",
+        "utils/mcq-extractor.js",
+        "utils/highlighter.js",
+        "content.js"
+      ],
+      "css": [
+        "popup/popup.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/icon.png",
+      "48": "assets/icon.png",
+      "128": "assets/icon.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icon.png",
+    "48": "assets/icon.png",
+    "128": "assets/icon.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "utils/*.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

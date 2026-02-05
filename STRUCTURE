@@ -1,0 +1,36 @@
+mcq-solver/
+├── extension/                  # Chrome Extension (Frontend)
+│   ├── manifest.json
+│   ├── background.js          # Service Worker
+│   ├── content.js             # Content Script
+│   ├── popup/
+│   │   ├── popup.html
+│   │   ├── popup.js
+│   │   └── popup.css
+│   ├── utils/
+│   │   ├── mcq-extractor.js   # DOM extraction logic
+│   │   ├── stealth.js         # Anti-detection utilities
+│   │   └── highlighter.js     # Answer highlighting
+│   └── assets/
+│       └── icon.png
+│
+├── backend/                    # Node.js Backend
+│   ├── server.js
+│   ├── routes/
+│   │   ├── answer.js          # AI answer endpoint
+│   │   └── ocr.js             # OCR endpoint
+│   ├── services/
+│   │   ├── ai-service.js      # LLM integration
+│   │   ├── ocr-service.js     # Tesseract OCR
+│   │   └── mcq-parser.js      # Parse OCR → MCQ
+│   ├── middleware/
+│   │   └── validator.js       # Request validation
+│   ├── config/
+│   │   └── constants.js
+│   ├── .env.example
+│   ├── package.json
+│   └── README.md
+│
+└── docs/
+    ├── SETUP.md
+    └── ARCHITECTURE.md
